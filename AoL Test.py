@@ -1,37 +1,66 @@
-def readnames(textfile, namesfile):
-  #Open the files
-  textWithNames = open(textfile, "r")
-  namesFile = open(namesfile, "r")
-  #create a results string
-  #use sring.split to make each word into a list object
-  results = []
-  amountoflines = 0
-  #create information I will test
-  names[] = namesFile.split()
-  textLines[] = textWithNames.split()
-  #start checking for names
-
-
-  while lines:
-      amountoflines += 1
-      lines = textWithNames.readline()
-    textLines.close()
-    
-  #append, adds on whatever you want directly to the list. e.g. 
-  #(x = [1, 2, 3] x.append([4, 5]) printing x returns
-  # [1, 2, 3, [4, 5]]
-  for(name in names):
-    #load names into result
-    results = results.append([name, ""])
- 
-     
-    #find the lines that contain the name
-    for i in range(1, amountoflines + 1):
-      if(textLines[i].index(names) >= 0)
-        results[name].extend([i])
-  print(results)
-    
+import os
+os.chdir(r"C:\Users\georg_ozhdqy2\Documents\Names")
+class Reader:
+  def readnames(self):
   
+    linenumber = 0
+    namecount = 0
+    results = []
+    textLines = []
+  
+    #importing os so i can get file directory
+    
+    
+    #Open the files
+    #textWithNamesFile = open("TextWithNames.txt")
+    #namesFile = open("Names.txt")
+
+    #create a results list
+    
+    
+    
+    
+    #Load the file into Memory
+    
+    with open("TextWithNames.txt") as f:
+      text = f.readlines()
+    text = [x.strip() for x in text]
+    f.close()
+   # Load the names into Memory
+    with open("Names.txt") as q:
+      names = q.readlines()
+    names = [y.strip() for y in names] 
+      
+    q.close()
+    
+    for i in range(0, len(text)):
+      textLines.append([text[i]]) 
+  #you may also want to remove whitespace characters like `\n` at the end of each line
+    
+
+      
+    #Find the names in the text
+    for name in names:
+      results.append(names[namecount])
+      
+      
+      linenumber = 0
+      for whichline in textLines:
+        
+        if (any(names[namecount][0] in sublist for sublist in textLines[linenumber]) == True):
+          
+          results[namecount] = results[namecount] + " -> " + str(linenumber)
+      
+        linenumber = linenumber + 1
+      namecount = namecount + 1
+      
+    print(results)  
+      
+
+      
+
+reader = Reader()
+reader.readnames()
   
   
   
